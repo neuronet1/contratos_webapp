@@ -1,0 +1,9 @@
+extends layout
+
+block list_trabajadores
+    ul.nav.nav-sidebar
+        each contrato in contratos
+            li
+                a(href='home/usuario/#{contrato._id}') #{contrato.trabajador.nombre}
+
+
