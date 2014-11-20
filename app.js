@@ -1,5 +1,4 @@
-var mongoUrl = 'mongodb://localhost:27017/casas_pemex'
-
+var mongoUrl = 'mongodb://localhost:27017/casas_pemex';
 
 var express = require('express');
 var path = require('path');
@@ -12,6 +11,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var trabajadores = require('./routes/trabajadores');
 var  mongodb = require('mongodb');
+var ObjectID = require('mongodb').ObjectID;
 var expressHbs = require('express-handlebars');
 
 var app = express();
@@ -37,7 +37,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(function (req, res, next) {
     mongodb.MongoClient.connect(mongoUrl, function (err, db) {
         //req.db = db;
-        req.db = { contratos: db.collection('contratos')};
+        req.db = {
+            contratos: db.collection('contratos'),
+            ObjectID: ObjectID
+        };
         next();
     });
 });

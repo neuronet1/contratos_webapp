@@ -60,6 +60,9 @@
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <div class="welcome" ng-show="!current">
                 <div class="row">
+                    <br/>
+                </div>
+                <div class="row">
                     <div class="container text-center">
                          <div class="col-md-12">
                             <img src="images/home_big.png" alt=""/>
@@ -98,6 +101,7 @@
                             <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Deshacer
                         </button>
                         <button type="button"
+                                ng-click="onImprimir(current)"
                                 class="btn btn-success">
                             <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Imprimir
                         </button>

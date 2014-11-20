@@ -9,6 +9,10 @@ contratosApp.controller('contratosController', function ($scope, $http) {
         $scope.isEdited = true;
     };
 
+    $scope.onImprimir = function (trabajador) {
+        alert(trabajador._id);
+    };
+
     $scope.onUndo = function() {
         $scope.current = jQuery.extend(true,{}, $scope.original);
         $scope.isEdited = false;
