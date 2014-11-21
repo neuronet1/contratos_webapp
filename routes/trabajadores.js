@@ -17,6 +17,42 @@ router.get('/list', function(req, res) {
 
 });
 
+
+// Guardamos los datos del trabajador
+router.post('/save', function (req, res) {
+    console.log('guardando los cambios');
+
+    var registro = {
+        "folio": {
+            "consecutivo": "",
+            "fecha_solicitud": ""
+        },
+        "trabajador": {
+            "nombre": "MARTIN BRAVO NOYOLA",
+            "ficha": "203918",
+            "nivel": "39",
+            "profesion": "LIC.",
+            "categoria": "ESPECIALISTA TECNICO 'A'",
+            "puesto": ""
+        },
+        "casa": {
+            "status": "Ocupada",
+            "estado": "C",
+            "colonia": "ANT. LOMB.BON",
+            "cp": "93380",
+            "parcela": "42",
+            "escritura": "3091 17/02/1955",
+            "casa": "1"
+        },
+        "empresa": {
+            "centro": "SEDE RN",
+            "area": "GRUPO MULTIDISCIPLINARIO"
+        }
+    };
+
+    res.send(registro);
+});
+
 // A partir del id del trabajador, genera el documento odt
 router.get('/print/:id', function (req, res) {
       var id = new req.db.ObjectID(req.params.id);
