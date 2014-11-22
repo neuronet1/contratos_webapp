@@ -7,19 +7,32 @@ var template = odt.template;
 var createWriteStream = fs.createWriteStream;
 var plantilla = 'public/contratos/plantilla_contrato.ott';
 
+var LOG=false;
 
+
+// lista todos los contratos registrados
 router.get('/list', function(req, res) {
-  var contratos = new Contratos(req.db);
+  var contratos = new Contratos(req.db,LOG);
 
-  contratos.get_contratos({},function(contratos) {
-    res.json(contratos);
+  contratos.get_contratos({},function(err, results) {
+    res.json(results);
   });
 
 });
 
+//regresa los datos de un determinado trabajador
+router.get('/get/:id', function (req, res) {
+    var contratos = new Contratos(req.db,LOG);
+
+    contratos.get_contrato(req.params.id, function (err, doc) {
+        res.json(doc);
+    });
+
+});
 
 // Guardamos los datos del trabajador
 router.post('/save', function (req, res) {
+    // xhacer falta insertar en la base
     console.log('guardando los cambios');
 
     var registro = {
@@ -52,6 +65,7 @@ router.post('/save', function (req, res) {
 
     res.send(registro);
 });
+
 
 // A partir del id del trabajador, genera el documento odt
 router.get('/print/:id', function (req, res) {
