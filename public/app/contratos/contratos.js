@@ -1,1 +1,1 @@
-angular.module('contratos',['contratos.list']);
+angular.module('contratos',['contratos.list','contratos.item']);

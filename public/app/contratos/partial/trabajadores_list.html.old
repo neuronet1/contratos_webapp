@@ -1,0 +1,20 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            <ul class="list-group">
+                <li
+                        class="list-group-item"
+                        ng-repeat="t in trabajadores | filter:search|orderBy:'trabajador.nombre'">
+                    <a ng-href="#/trabajador/{{t._id}}">
+                        <!-- xarreglar -->
+                        <img src="images/user6.png"> {{t.trabajador.nombre}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <ng-view></ng-view>
+        </div>
+    </div>
+</div>
+

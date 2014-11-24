@@ -20,7 +20,7 @@
 <body ng-app="contratosApp">
 
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
+    <div class="container-fluid" ng-controller="common.topMenu.controller">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
@@ -28,58 +28,54 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/"><img alt="Brand" src="images/home_small.png"> Contratos de arrendamiento</a>
+            <a class="navbar-brand" href="/"><img alt="Brand" src="images/home_small.png"> Patrimonial</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><span class="glyphicon glyphicon-cog"></span> Configuración</a></li>
+            <ul class="nav navbar-nav navbar-left">
+                <li ng-repeat="item in items" ng-click="changeMenuSelected(item.menu)"
+                        ng-class="{'active':isSelected(item.menu)}" >
+                    <a ui-sref="{{item.ref}}"><span class="{{item.icon}}"></span> {{item.menu}}</a>
+                </li>
             </ul>
 
+            <!--
             <form class="navbar-form navbar-right">
                 <input type="text"
                        ng-model="search.trabajador.nombre"
                        class="form-control"
                        placeholder="Buscar por persona...">
             </form>
+            -->
         </div>
     </div>
 </nav>
 
-<div class="container-fluid" ng-controller="contratos.list.controller" ng-init="getContratosList()">
-    <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="list-group">
-                <li
-                        class="list-group-item"
-                        ng-repeat="t in trabajadores | filter:search|orderBy:'trabajador.nombre'">
-                    <a ng-href="#/trabajador/{{t._id}}">
-                        <!-- xarreglar -->
-                        <img src="images/user6.png"> {{t.trabajador.nombre}}
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+<div ui-view></div>
 
-            <ng-view></ng-view>
 
-        </div>
-    </div>
-</div>
 
 <!-- Bootstrap core JavaScript
 ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 <script src="lib/jquery/jquery.min.js"></script>
 <script src="lib/angular/angular.min.js"></script>
-<script src="lib/angular/angular-route.js"></script>
+<script src="lib/angular/angular-ui-router.js"></script>
 <script src="bootstrap/js/bootstrap.min.js"></script>
 
+
+<script src="app/common/topMenu/module.js"></script>
+<script src="app/common/topMenu/controller.js"></script>
+<script src="app/common/common.js"></script>
+
+
 <script src="app/contratos/list/contratos-list.js"></script>
+<script src="app/contratos/list/contratos.item.js"></script>
 <script src="app/contratos/contratos.js"></script>
 
-<script src="app/app.js"></script>
 
+
+
+<script src="app/app.js"></script>
 
 </body>
 </html>
