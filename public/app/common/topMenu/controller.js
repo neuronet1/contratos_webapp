@@ -1,6 +1,11 @@
 topMenu.controller('common.topMenu.controller', function ($scope) {
     $scope.items = [
         {
+            "menu": "Subgerencia deAdministración Patrimonial y de Servicios",
+            "ref": 'inicio',
+            "icon": 'glyphicon glyphicon-home'
+        },
+        {
             "menu": "Contratos de arrendamiento",
             "ref": 'contratos',
             "icon": 'glyphicon glyphicon-book'
@@ -19,7 +24,12 @@ topMenu.controller('common.topMenu.controller', function ($scope) {
     };
 
     $scope.isSelected = function(menu) {
-        return $scope.itemSelected == menu;
-    }
+        // Si no hay un elemento seleccionado apuntamos al primero
+        if($scope.itemSelected === null) {
+            $scope.itemSelected = $scope.items[0];
+        }
+
+        return $scope.itemSelected === menu;
+    };
 
 });

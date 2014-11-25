@@ -9,7 +9,6 @@ var plantilla = 'public/contratos/plantilla_contrato.ott';
 
 var LOG=false;
 
-
 // lista todos los contratos registrados
 router.get('/list', function(req, res) {
   var contratos = new Contratos(req.db,LOG);
@@ -35,35 +34,41 @@ router.post('/save', function (req, res) {
     // xhacer falta insertar en la base
     console.log('guardando los cambios');
 
-    var registro = {
+    var documento = {
+        "_id": req.body._id,
         "folio": {
             "consecutivo": "",
             "fecha_solicitud": ""
         },
         "trabajador": {
-            "nombre": "MARTIN BRAVO NOYOLA",
-            "ficha": "203918",
-            "nivel": "39",
-            "profesion": "LIC.",
-            "categoria": "ESPECIALISTA TECNICO 'A'",
-            "puesto": ""
+            "nombre": req.body.trabajadorNombre,
+            "ficha":req.body.trabajadorFicha,
+            "nivel": req.body.trabajadorNivel,
+            "profesion": req.body.trabajadorProfesion,
+            "categoria":req.body.trabajadorCategoria ,
+            "puesto": req.body.trabajadorPuesto
         },
         "casa": {
-            "status": "Ocupada",
-            "estado": "C",
-            "colonia": "ANT. LOMB.BON",
-            "cp": "93380",
-            "parcela": "42",
-            "escritura": "3091 17/02/1955",
-            "casa": "1"
+            "status": req.body.casaStatus,
+            "estado": req.body.casaEstado,
+            "colonia": req.body.casaColonia,
+            "cp": req.body.casaCodigoPostal,
+            "parcela": req.body.casaParcela,
+            "escritura": req.body.casaEscritura,
+            "casa":req.body.casaNumero
         },
         "empresa": {
-            "centro": "SEDE RN",
-            "area": "GRUPO MULTIDISCIPLINARIO"
+            "centro": req.body.empresaCentro,
+            "area": req.body.empresaArea
         }
     };
 
-    res.send(registro);
+    var contratos = new Contratos(req.db,LOG);
+
+    contratos.update(documento, function (err, doc) {
+        res.json(doc);
+    });
+
 });
 
 

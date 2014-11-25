@@ -1,5 +1,4 @@
-angular.module('contratos.item',[]).
-    controller('contratos.item.controller', function ($scope, $http, $stateParams) {
+contratosItem.controller('contratos.item.controller', function ($scope, $http, $stateParams) {
         $scope.isEdited = false;
 
         // Obtiene los datos de un contrato a partir del id
