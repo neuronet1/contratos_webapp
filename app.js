@@ -17,11 +17,11 @@ var expressHbs = require('express-handlebars');
 var app = express();
 
 // view engine setup
-//app.set('views', path.join(__dirname, 'views'));
-//app.set('view engine', 'jade');
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
 
-app.engine('hbs', expressHbs({extname:'hbs' /*, defaultLayout:'main.hbs'*/}));
-app.set('view engine', 'hbs');
+//app.engine('hbs', expressHbs({extname:'hbs' /*, defaultLayout:'main.hbs'*/}));
+//app.set('view engine', 'hbs');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(__dirname + '/public/favicon.ico'));
@@ -75,14 +75,12 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.send(err);
-
-    /*
+    //res.send(err);
     res.render('error', {
         message: err.message,
         error: {}
     });
-    */
+
 });
 
 

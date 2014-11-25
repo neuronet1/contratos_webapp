@@ -4,6 +4,14 @@ var contratosApp = angular.module('contratosApp',
 contratosApp.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');
 
+    toastr.options = {
+        showMethod : 'slideDown',
+        hideMethod : 'slideUp',
+        timeOut : 3000,
+        progressBar: true
+    };
+
+
     $stateProvider
         .state('inicio', {
             url: '/',

@@ -1,5 +1,5 @@
 <div>
-    <form action="/trabajadores/save" method="post" name="contratoForm" >
+    <form method="post" name="contratoForm" >
         <div class="row">
             <div class="col-md-1">
                 <img src="images/user_small.png"/>
@@ -8,7 +8,8 @@
                 <h2 class="page-header">{{original.trabajador.nombre}}</h2>
             </div>
             <div class="col-md-4">
-                <button type="submit"
+                <button type="button"
+                        ng-click="onPostContrato()"
                         ng-show="isEdited"
                         class="btn btn-primary">
                     <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Guardar
@@ -305,8 +306,8 @@
         <!--definimos los mensajes de validacion-->
         <script type="text/ng-template" id="validaciones">
             <div class="error-message" ng-message="required"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span> Este campo es obligatorio</div>
-            <div class="error-message" ng-message="minlength">El campo  no tiene los caracteres suficientes</div>
-            <div class="error-message" ng-message="maxlength">El campo excede los caracteres requeridos</div>
+            <div class="error-message" ng-message="minlength"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span> El campo  no tiene los caracteres suficientes</div>
+            <div class="error-message" ng-message="maxlength"><span class="glyphicon glyphicon-hand-right" aria-hidden="true"></span> El campo excede los caracteres requeridos</div>
         </script>
 
 

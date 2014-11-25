@@ -31,8 +31,14 @@ router.get('/get/:id', function (req, res) {
 
 // Guardamos los datos del trabajador
 router.post('/save', function (req, res) {
+    var contrato = req.body.contrato;
+
+    //res.send(req.body.contrato);
+
     // xhacer falta insertar en la base
     console.log('guardando los cambios');
+
+    /*
 
     var documento = {
         "_id": req.body._id,
@@ -63,11 +69,14 @@ router.post('/save', function (req, res) {
         }
     };
 
+    */
+
     var contratos = new Contratos(req.db,LOG);
 
-    contratos.update(documento, function (err, doc) {
+    contratos.update(contrato, function (err, doc) {
         res.json(doc);
     });
+
 
 });
 
