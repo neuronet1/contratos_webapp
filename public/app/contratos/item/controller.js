@@ -32,4 +32,8 @@ contratosItem.controller('contratos.item.controller', function ($scope, $http, $
             $scope.isEdited = false;
         };
 
+        $scope.interacted = function(field) {
+            return field.$dirty;
+        };
+
     });
