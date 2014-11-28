@@ -5,16 +5,18 @@
                 <img src="images/user_small.png"/>
             </div>
             <div class="col-md-7">
-                <h2 class="page-header">{{original.trabajador.nombre}}</h2>
+                <h2 class="page-header" id="headerNombreTrabajador">{{original.trabajador.nombre}}</h2>
             </div>
             <div class="col-md-4">
                 <button type="button"
+                        id="btnGuardar"
                         ng-click="onPostContrato()"
                         ng-show="isEdited"
                         class="btn btn-primary">
                     <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Guardar
                 </button>
                 <button type="button"
+                        id="btnDeshacer"
                         ng-show="isEdited"
                         ng-click="onUndo()"
                         class="btn btn-primary">
@@ -22,6 +24,7 @@
                 </button>
                 <a ng-href="trabajadores/print/{{current._id}}">
                     <button type="button"
+                            id="btnImprimir"
                             class="btn btn-success">
                         <span class="glyphicon glyphicon-print" aria-hidden="true"></span> Imprimir
                     </button>

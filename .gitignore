@@ -1,5 +1,5 @@
 node_modules
-public/bootstrap
+public/lib/bootstrap
 public/lib
 public/contratos
 .idea

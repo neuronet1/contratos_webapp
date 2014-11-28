@@ -1,7 +1,7 @@
 topMenu.controller('common.topMenu.controller', function ($scope) {
     $scope.items = [
         {
-            "menu": "Subgerencia deAdministración Patrimonial y de Servicios",
+            "menu": "Inicio",
             "ref": 'inicio',
             "icon": 'glyphicon glyphicon-home'
         },
