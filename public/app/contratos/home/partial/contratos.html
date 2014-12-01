@@ -1,26 +1,65 @@
 <div class="container-fluid" >
     <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-            <h4>Funcionarios</h4>
-            <input type="text"
-                   ng-model="search.trabajador.nombre"
-                   class="form-control"
-                   placeholder="Buscar ...">
-            <br/>
-            <ul class="list-group">
-                <li ng-click="changeItemSelected(t)"
+        <div class="col-sm-3 col-md-2 sidebar menuFuncionarios">
+
+            <!--
+            <div class="panel panel-default">
+                <div class="panel-heading">Funcionarios</div>
+
+                <div class="panel-body">
+                 <input type="text"
+                       ng-model="search.trabajador.nombre"
+                       class="form-control"
+                       placeholder="Filtrar por nombre...">
+                </div>
+                <div class="list-group">
+                    <a ui-sref="contratos.item({id:t._id})"
+                       ng-class="{'active alert alert-info':isItemSelected(t)}"
+                       ng-repeat="t in trabajadores | filter:search"
+                       class="list-group-item">{{t.trabajador.nombre}}</a>
+                </div>
+            </div>
+            -->
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <span class="glyphicon glyphicon-th-list"> Funcionarios</span>
+                </div>
+                <div class="panel-body">
+                    <span class="glyphicon glyphicon-search"></span>
+                    <div style="display: inline"> Buscar por nombre</div>
+                      <input type="text"
+                           ng-model="search.trabajador.nombre"
+                           class="form-control"
+                           placeholder="Nombre">
+                </div>
+
+                <ul class="list-group">
+                    <li ng-click="changeItemSelected(t)"
                         class="list-group-item"
+                        ui-sref="contratos.item({id:t._id})"
                         ng-class="{'active alert alert-info':isItemSelected(t)}"
                         ng-repeat="t in trabajadores | filter:search">
-                    <a ui-sref="contratos.item({id:t._id})" class="alert-link">
-                        <!-- xarreglar -->
-                        <img src="images/user6.png"> {{t.trabajador.nombre}}
-                    </a>
-                </li>
-            </ul>
+                        <!--<span class="glyphicon glyphicon-user">{{t.trabajador.nombre}}</span>-->
+                        {{t.trabajador.nombre}}
+                    </li>
+                </ul>
+                <div class="panel-footer"></div>
+
+            </div>
         </div>
-        <div ui-view
-             class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <div ng-show="itemSelected===null">
+                <br/><br/><br/>
+                <div class="text-center">
+                    <img src="images/contratos.png" />
+                </div>
+                <div class="text-center">
+                    <h1>Contratos de arrendamiento</h1>
+                </div>
+                <hr/>
+            </div>
+            <div ui-view></div>
         </div>
     </div>
 </div>

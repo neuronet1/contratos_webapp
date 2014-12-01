@@ -5,7 +5,22 @@
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
   padding-top: 50px;
-  background-image: url('/images/tumblr_static_aqg83xc795sg8sg88s48o0k8w.png');
+  background-image: url('/images/fondo.jpg');
+
+  /*
+  background: url('/images/contratos.png') right 350px no-repeat,
+      url('/images/home_big.png') center 100px no-repeat,
+      url('/images/fondo.jpg') 0 0 repeat;
+      */
+
+}
+
+.menuFuncionarios {
+  background-image: url('/images/ladrillos.jpg');
+}
+
+.itemFuncionario {
+  background: linear-gradient(to bottom, rgba(100,100,100,.3), rgba(0,0,0,.8));
 }
 
 .welcome {
@@ -141,4 +156,15 @@ body {
 .error-message.ng-leave-active {
   opacity:0;
   top:-20px;
+}
+
+
+.my-tab {
+  /*background-color: #d3d3d3;*/
+  /*background-color:#f7e1b5;*/
+  background-color:burlywood;
+}
+
+.my-tab-heading {
+  color: #101010;
 }

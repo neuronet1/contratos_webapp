@@ -19,8 +19,8 @@ contratosItem.controller('contratos.item.controller', function ($scope, $http, $
                 method:'POST',
                 url: 'trabajadores/save',
                 data: {
+                    _id: contrato._id,
                     contrato: {
-                         _id: contrato._id,
                         trabajador: {
                             nombre: contrato.trabajador.nombre,
                             ficha: contrato.trabajador.ficha,
@@ -41,9 +41,24 @@ contratosItem.controller('contratos.item.controller', function ($scope, $http, $
                         empresa: {
                             centro: contrato.empresa.centro,
                             area: contrato.empresa.area
+                        },
+                        fechas: {
+                            solicitud: contrato.fechas.solicitud,
+                            autorizacion: contrato.fechas.autorizacion,
+                            inicioVigencia: contrato.fechas.inicioVigencia,
+                            finVigencia: contrato.fechas.finVigencia,
+                            firmaContrato: contrato.fechas.firmaContrato
+                        },
+                        actas: {
+                            numero: contrato.actas.numero
+                        },
+                        firmas: {
+                            sancion: contrato.firmas.sancion,
+                            recursosHumanos: contrato.firmas.recursosHumanos,
+                            admonPatri: contrato.firmas.admonPatri
                         }
                     }
-               }
+                }
             })
                 .success(function (data, status) {
                     toastr.success('El cambio ha sido guardado');
@@ -60,6 +75,7 @@ contratosItem.controller('contratos.item.controller', function ($scope, $http, $
             getContrato($stateParams.id, function (doc) {
                 $scope.isEdited = false;
                 $scope.current= doc;
+
                 //clonamos los valores del trabajador
                 $scope.original = jQuery.extend(true,{}, doc);
             });
@@ -67,6 +83,7 @@ contratosItem.controller('contratos.item.controller', function ($scope, $http, $
 
         $scope.onChange = function () {
             $scope.isEdited = true;
+            console.log('onchange');
         };
 
         $scope.onUndo = function() {
@@ -79,6 +96,7 @@ contratosItem.controller('contratos.item.controller', function ($scope, $http, $
         };
 
         $scope.interacted = function(field) {
+            console.log('interacted');
             return field.$dirty;
         };
 

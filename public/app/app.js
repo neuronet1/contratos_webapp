@@ -1,5 +1,5 @@
 var contratosApp = angular.module('contratosApp',
-            ['ui.router','ngAnimate','ngMessages','contratos','common']);
+            ['ui.bootstrap','ui.router','ngAnimate','ngMessages','contratos','common']);
 
 contratosApp.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/');

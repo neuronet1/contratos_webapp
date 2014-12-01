@@ -1,0 +1,489 @@
+<tabset>
+    <tab heading="Trabajador">
+
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <span class="glyphicon glyphicon-user" aria-hidden="true">
+                            <h3 class="panel-title" style="display:inline">Trabajador</h3>
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="trabajadorNombre">Nombre</label>
+                            <!-- xarreglar incluye watch en lugar de onchange -->
+                            <input type="text"
+                                   required
+                                   ng-change="onChange()"
+                                   class="form-control"
+                                   id="trabajadorNombre"
+                                   name="trabajadorNombre"
+                                   ng-model="current.trabajador.nombre" >
+                            <div
+                                    class="error-messages"
+                                    ng-if="interacted(contratoForm.trabajadorNombre)"
+                                    data-ng-messages="contratoForm.trabajadorNombre.$error"
+                                    data-ng-messages-include="validaciones"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="trabajadorFicha">Ficha</label>
+                            <input type="text"
+                                   required
+                                   minlength="6"
+                                   maxlength="6"
+                                   class="form-control"
+                                   ng-change="onChange()"
+                                   id="trabajadorFicha"
+                                   name="trabajadorFicha"
+                                   ng-model="current.trabajador.ficha"
+                                   placeholder="Ficha">
+                            <div data-ng-messages="contratoForm.trabajadorFicha.$error"
+                                 class="error-messages"
+                                 ng-if="interacted(contratoForm.trabajadorFicha)"
+                                 data-ng-messages-include="validaciones"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="trabajadorNivel">Nivel</label>
+                            <input type="text"
+                                   required
+                                   minlength="2"
+                                   maxlength="2"
+                                   class="form-control"
+                                   ng-change="onChange()"
+                                   id="trabajadorNivel"
+                                   name="trabajadorNivel"
+                                   ng-model="current.trabajador.nivel"
+                                   placeholder="Nivel">
+
+                            <div data-ng-messages="contratoForm.trabajadorNivel.$error"
+                                 class="error-messages"
+                                 ng-if="interacted(contratoForm.trabajadorNivel)"
+                                 data-ng-messages-include="validaciones"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="trabajadorProfesion">Profesión</label>
+                            <input type="text"
+                                   required
+                                   class="form-control"
+                                   ng-change="onChange()"
+                                   id="trabajadorProfesion"
+                                   name="trabajadorProfesion"
+                                   ng-model="current.trabajador.profesion"
+                                   placeholder="Profesión">
+                            <div data-ng-messages="contratoForm.trabajadorProfesion.$error"
+                                 class="error-messages"
+                                 ng-if="interacted(contratoForm.trabajadorProfesion)"
+                                 data-ng-messages-include="validaciones"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="trabajadorCategoria">Categoría</label>
+                            <input type="text"
+                                   required
+                                   class="form-control"
+                                   id="trabajadorCategoria"
+                                   name="trabajadorCategoria"
+                                   ng-change="onChange()"
+                                   ng-model="current.trabajador.categoria"
+                                   placeholder="Categoría">
+                            <div data-ng-messages="contratoForm.trabajadorCategoria.$error"
+                                 class="error-messages"
+                                 ng-if="interacted(contratoForm.trabajadorCategoria)"
+                                 data-ng-messages-include="validaciones"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="trabajadorPuesto">Puesto</label>
+                            <input type="text"
+                                   required
+                                   class="form-control"
+                                   id="trabajadorPuesto"
+                                   name="trabajadorPuesto"
+                                   ng-model="current.trabajador.puesto"
+                                   ng-change="onChange()"
+                                   placeholder="Puesto">
+                            <div data-ng-messages="contratoForm.trabajadorPuesto.$error"
+                                 class="error-messages"
+                                 ng-if="interacted(contratoForm.trabajadorPuesto)"
+                                 data-ng-messages-include="validaciones"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <br/><br/><br/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <span class="glyphicon glyphicon-home" aria-hidden="true">
+                            <h3 class="panel-title" style="display:inline">Casa</h3>
+                        </span>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="casaNumero">Número</label>
+                            <input type="text"
+                                   required
+                                   class="form-control"
+                                   id="casaNumero"
+                                   name="casaNumero"
+                                   ng-model="current.casa.casa"
+                                   ng-change="onChange()"
+                                   placeholder="Número">
+                            <div data-ng-messages="contratoForm.casaNumero.$error"
+                                 class="error-messages"
+                                 ng-if="interacted(contratoForm.casaNumero)"
+                                 data-ng-messages-include="validaciones"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="casaColonia">Colonia</label>
+                            <input type="text"
+                                   required
+                                   class="form-control"
+                                   id="casaColonia"
+                                   name="casaColonia"
+                                   ng-model="current.casa.colonia"
+                                   ng-change="onChange()"
+                                   placeholder="Colonia">
+                            <div data-ng-messages="contratoForm.casaColonia.$error"
+                                 class="error-messages"
+                                 ng-if="interacted(contratoForm.casaColonia)"
+                                 data-ng-messages-include="validaciones"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="casaParcela">Parcela</label>
+                            <input type="text"
+                                   required
+                                   class="form-control"
+                                   id="casaParcela"
+                                   name="casaParcela"
+                                   ng-change="onChange()"
+                                   ng-model="current.casa.parcela"
+                                   placeholder="Parcela">
+                            <div data-ng-messages="contratoForm.casaParcela.$error"
+                                 class="error-messages"
+                                 ng-if="interacted(contratoForm.casaParcela)"
+                                 data-ng-messages-include="validaciones"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="casaCodigoPostal">Código Postal</label>
+                            <input type="text"
+                                   class="form-control"
+                                   required
+                                   minlength="5"
+                                   maxlength="5"
+                                   id="casaCodigoPostal"
+                                   name="casaCodigoPostal"
+                                   ng-change="onChange()"
+                                   ng-model="current.casa.cp"
+                                   placeholder="Código Postal">
+                            <div data-ng-messages="contratoForm.casaCodigoPostal.$error"
+                                 class="error-messages"
+                                 ng-if="interacted(contratoForm.casaCodigoPostal)"
+                                 data-ng-messages-include="validaciones"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="casaStatus">Estatus</label>
+                            <input type="text"
+                                   class="form-control"
+                                   required
+                                   id="casaStatus"
+                                   name="casaStatus"
+                                   ng-change="onChange()"
+                                   ng-model="current.casa.status"
+                                   placeholder="Estatus">
+                            <div data-ng-messages="contratoForm.casaStatus.$error"
+                                 class="error-messages"
+                                 ng-if="interacted(contratoForm.casaStatus)"
+                                 data-ng-messages-include="validaciones"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="casaEscritura">Escritura</label>
+                            <input type="text"
+                                   class="form-control"
+                                   required
+                                   id="casaEscritura"
+                                   name="casaEscritura"
+                                   ng-change="onChange()"
+                                   ng-model="current.casa.escritura"
+                                   placeholder="Escritura">
+                            <div data-ng-messages="contratoForm.casaEscritura.$error"
+                                 class="error-messages"
+                                 ng-if="interacted(contratoForm.casaEscritura)"
+                                 data-ng-messages-include="validaciones"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="casaEstado">Estado</label>
+                            <input type="text"
+                                   class="form-control"
+                                   required
+                                   id="casaEstado"
+                                   name="casaEstado"
+                                   ng-change="onChange()"
+                                   ng-model="current.casa.estado"
+                                   placeholder="Estado">
+                            <div data-ng-messages="contratoForm.casaEstado.$error"
+                                 class="error-messages"
+                                 ng-if="interacted(contratoForm.casaEstado)"
+                                 data-ng-messages-include="validaciones"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <span class="glyphicon glyphicon-tower" aria-hidden="true">
+                            <h3 class="panel-title" style="display:inline">Empresa</h3>
+                        </span>
+                    </div>
+
+                    <div class="panel-body">
+
+                        <div class="form-group">
+                            <label for="empresaCentro">Centro de trabajo</label>
+                            <input type="text"
+                                   required
+                                   class="form-control"
+                                   id="empresaCentro"
+                                   name="empresaCentro"
+                                   ng-change="onChange()"
+                                   ng-model="current.empresa.centro"
+                                   placeholder="Centro de trabajo">
+                            <div data-ng-messages="contratoForm.empresaCentro.$error"
+                                 class="error-messages"
+                                 ng-if="interacted(contratoForm.empresaCentro)"
+                                 data-ng-messages-include="validaciones"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="empresaArea">Área</label>
+                            <br/>
+                            <textarea id="empresaArea"
+                                      required
+                                      name="empresaArea"
+                                      ng-change="onChange()"
+                                      cols="30"
+                                      rows="5"
+                                      ng-model="current.empresa.area"
+                                      placeholder="Área"></textarea>
+                            <div data-ng-messages="contratoForm.empresaArea.$error"
+                                 class="error-messages"
+                                 ng-if="interacted(contratoForm.empresaArea)"
+                                 data-ng-messages-include="validaciones"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <span class="glyphicon glyphicon-book" aria-hidden="true">
+                            <h3 class="panel-title" style="display:inline">Actas</h3>
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="actasNumero">Número acta de entrega recepción</label>
+                            <input type="text"
+                                   required
+                                   class="form-control"
+                                   id="actasNumero"
+                                   name="actasNumero"
+                                   ng-model="current.actas.numero"
+                                   ng-change="onChange()"
+                                   placeholder="Acta de entrega">
+                            <div data-ng-messages="contratoForm.actasNumero.$error"
+                                 class="error-messages"
+                                 ng-if="interacted(contratoForm.actasNumero)"
+                                 data-ng-messages-include="validaciones"></div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </tab>
+
+    <tab heading="Empresa">
+
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <span class="glyphicon glyphicon-time" aria-hidden="true">
+                            <h3 class="panel-title" style="display:inline">Fechas</h3>
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="fechasSolicitud">Fecha de solicitud de vivienda</label>
+                            <input type="text"
+                                   class="form-control"
+                                   required
+                                   id="fechasSolicitud"
+                                   name="fechasSolicitud"
+                                   ng-change="onChange()"
+                                   ng-model="current.fechas.solicitud"
+                                   placeholder="Fecha">
+                            <div data-ng-messages="contratoForm.fechasSolicitud.$error"
+                                 class="error-messages"
+                                 ng-if="interacted(contratoForm.fechasSolicitud)"
+                                 data-ng-messages-include="validaciones"></div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="fechasAutorizacion">Fecha de autorización</label>
+                            <input type="text"
+                                   class="form-control"
+                                   required
+                                   id="fechasAutorizacion"
+                                   name="fechasAutorizacion"
+                                   ng-change="onChange()"
+                                   ng-model="current.fechas.autorizacion"
+                                   placeholder="Fecha">
+                            <div data-ng-messages="contratoForm.fechasAutorizacion.$error"
+                                 class="error-messages"
+                                 ng-if="interacted(contratoForm.fechasAutorizacion)"
+                                 data-ng-messages-include="validaciones"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="fechasInicioVigencia">Inicio vigencia del contrato</label>
+                            <input type="text"
+                                   class="form-control"
+                                   required
+                                   id="fechasInicioVigencia"
+                                   name="fechasInicioVigencia"
+                                   ng-change="onChange()"
+                                   ng-model="current.fechas.inicioVigencia"
+                                   placeholder="Fecha">
+                            <div data-ng-messages="contratoForm.fechasInicioVigencia.$error"
+                                 class="error-messages"
+                                 ng-if="interacted(contratoForm.fechasInicioVigencia)"
+                                 data-ng-messages-include="validaciones"></div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="fechasFinVigencia">Fin vigencia del contrato</label>
+                            <input type="text"
+                                   class="form-control"
+                                   required
+                                   id="fechasFinVigencia"
+                                   name="fechasFinVigencia"
+                                   ng-change="onChange()"
+                                   ng-model="current.fechas.finVigencia"
+                                   placeholder="Fecha">
+                            <div data-ng-messages="contratoForm.fechasFinVigencia.$error"
+                                 class="error-messages"
+                                 ng-if="interacted(contratoForm.fechasFinVigencia)"
+                                 data-ng-messages-include="validaciones"></div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="fechasFirmaContrato">Firma del contrato</label>
+                            <input type="text"
+                                   class="form-control"
+                                   required
+                                   id="fechasFirmaContrato"
+                                   name="fechasFirmaContrato"
+                                   ng-change="onChange()"
+                                   ng-model="current.fechas.firmaContrato"
+                                   placeholder="Fecha">
+                            <div data-ng-messages="contratoForm.fechasFirmaContrato.$error"
+                                 class="error-messages"
+                                 ng-if="interacted(contratoForm.fechasFirmaContrato)"
+                                 data-ng-messages-include="validaciones"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <span class="glyphicon glyphicon-pencil" aria-hidden="true">
+                            <h3 class="panel-title" style="display:inline">Firmas</h3>
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <div class="form-group">
+                            <label for="firmasSancion">Sanción jurídica</label>
+                            <input type="text"
+                                   required
+                                   class="form-control"
+                                   id="firmasSancion"
+                                   name="firmasSancion"
+                                   ng-model="current.firmas.sancion"
+                                   ng-change="onChange()"
+                                   placeholder="Nombre de la persona">
+                            <div data-ng-messages="contratoForm.firmasSancion.$error"
+                                 class="error-messages"
+                                 ng-if="interacted(contratoForm.firmasSancion)"
+                                 data-ng-messages-include="validaciones"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="firmasRecursosHumanos">Testigo Recursos Humanos</label>
+                            <input type="text"
+                                   required
+                                   class="form-control"
+                                   id="firmasRecursosHumanos"
+                                   name="firmasRecursosHumanos"
+                                   ng-model="current.firmas.recursosHumanos"
+                                   ng-change="onChange()"
+                                   placeholder="Nombre de la persona">
+                            <div data-ng-messages="contratoForm.firmasRecursosHumanos.$error"
+                                 class="error-messages"
+                                 ng-if="interacted(contratoForm.firmasRecursosHumanos)"
+                                 data-ng-messages-include="validaciones"></div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label for="firmasAdmonPatri">Testigo Administración Patrimonial</label>
+                            <input type="text"
+                                   required
+                                   class="form-control"
+                                   id="firmasAdmonPatri"
+                                   name="firmasAdmonPatri"
+                                   ng-model="current.firmas.admonPatri"
+                                   ng-change="onChange()"
+                                   placeholder="Nombre de la persona">
+                            <div data-ng-messages="contratoForm.firmasAdmonPatri.$error"
+                                 class="error-messages"
+                                 ng-if="interacted(contratoForm.firmasAdmonPatri)"
+                                 data-ng-messages-include="validaciones"></div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <br/><br/><br/><br/><br/><br/>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </tab>
+</tabset>

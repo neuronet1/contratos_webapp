@@ -6,8 +6,11 @@ var odt = require('odt-old-archiver');
 var template = odt.template;
 var createWriteStream = fs.createWriteStream;
 var plantilla = 'public/contratos/plantilla_contrato.ott';
+var moment = require('moment');
 
 var LOG=false;
+
+moment.locale('es');
 
 // lista todos los contratos registrados
 router.get('/list', function(req, res) {
@@ -31,61 +34,28 @@ router.get('/get/:id', function (req, res) {
 
 // Guardamos los datos del trabajador
 router.post('/save', function (req, res) {
-    var contrato = req.body.contrato;
-
-    //res.send(req.body.contrato);
-
-    // xhacer falta insertar en la base
-    console.log('guardando los cambios');
-
-    /*
-
-    var documento = {
-        "_id": req.body._id,
-        "folio": {
-            "consecutivo": "",
-            "fecha_solicitud": ""
-        },
-        "trabajador": {
-            "nombre": req.body.trabajadorNombre,
-            "ficha":req.body.trabajadorFicha,
-            "nivel": req.body.trabajadorNivel,
-            "profesion": req.body.trabajadorProfesion,
-            "categoria":req.body.trabajadorCategoria ,
-            "puesto": req.body.trabajadorPuesto
-        },
-        "casa": {
-            "status": req.body.casaStatus,
-            "estado": req.body.casaEstado,
-            "colonia": req.body.casaColonia,
-            "cp": req.body.casaCodigoPostal,
-            "parcela": req.body.casaParcela,
-            "escritura": req.body.casaEscritura,
-            "casa":req.body.casaNumero
-        },
-        "empresa": {
-            "centro": req.body.empresaCentro,
-            "area": req.body.empresaArea
-        }
-    };
-
-    */
 
     var contratos = new Contratos(req.db,LOG);
 
-    contratos.update(contrato, function (err, doc) {
+    contratos.update(req.body._id, req.body.contrato, function (err, doc) {
         res.json(doc);
     });
 
 
 });
 
+// Convierte una fecha al formato texto espaniol
+var dateToText = function (d,format) {
+    var fecha = moment(d);
+    return fecha.format(format).toUpperCase();
+};
 
 // A partir del id del trabajador, genera el documento odt
 router.get('/print/:id', function (req, res) {
       var id = new req.db.ObjectID(req.params.id);
 
       req.db.contratos.findOne({"_id":id}, function(err, doc) {
+
         var values  = {
             "area":      {"type": "string", "value": doc.empresa.area},
             "casa":      {"type": "string", "value": doc.casa.casa },
@@ -96,10 +66,16 @@ router.get('/print/:id', function (req, res) {
             "cp":        {"type": "string", "value": doc.casa.cp},
             "puesto":    {"type": "string", "value": doc.trabajador.puesto},
             "categoria": {"type": "string", "value": doc.trabajador.categoria},
+            "autorizacion": {"type": "string", "value": dateToText(doc.fechas.autorizacion,'LL')},
+            "solicitud": {"type": "string", "value": dateToText(doc.fechas.solicitud, 'LL')},
+            "inicioVigencia": {"type": "string", "value": dateToText(doc.fechas.inicioVigencia, 'LL')},
+            "finVigencia": {"type": "string", "value": dateToText(doc.fechas.finVigencia, 'LL')},
+            "firmaContrato": {"type": "string", "value": dateToText(doc.fechas.firmaContrato, 'LL')},
+            "mesFirmaContrato": {"type": "string", "value": dateToText(doc.fechas.firmaContrato, 'MMMM')},
+            "diaFirmaContrato": {"type": "string", "value": dateToText(doc.fechas.firmaContrato, 'DD')},
+            "anioFirmaContrato": {"type": "string", "value": dateToText(doc.fechas.firmaContrato, 'YYYY')},
             "profesion": {"type": "string", "value": doc.trabajador.profesion}
         };
-
-
 
         template(plantilla)
         .apply(values)

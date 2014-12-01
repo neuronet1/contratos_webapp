@@ -1,5 +1,13 @@
 contratosList.controller('contratos.list.controller', function ($scope,$http/*,$routeParams*/) {
 
+    $scope.dateOptions = {
+        changeYear: true,
+        changeMonth: true,
+        yearRange: '1900:-0',
+        format:'DD, d MM, yy'
+    };
+
+
     $scope.trabajadores = null;
 
     $scope.itemSelected = null;
