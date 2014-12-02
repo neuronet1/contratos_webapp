@@ -74,7 +74,20 @@ router.get('/print/:id', function (req, res) {
             "mesFirmaContrato": {"type": "string", "value": dateToText(doc.fechas.firmaContrato, 'MMMM')},
             "diaFirmaContrato": {"type": "string", "value": dateToText(doc.fechas.firmaContrato, 'DD')},
             "anioFirmaContrato": {"type": "string", "value": dateToText(doc.fechas.firmaContrato, 'YYYY')},
-            "profesion": {"type": "string", "value": doc.trabajador.profesion}
+            "profesion": {"type": "string", "value": doc.trabajador.profesion},
+            "sancion": {"type": "string", "value": doc.firmas.sancion},
+            "firma1": {"type": "string", "value": doc.firmas.firma1},
+            "cargo1": {"type": "string", "value": doc.firmas.cargo1},
+            "firma2": {"type": "string", "value": doc.firmas.firma2},
+            "cargo2": {"type": "string", "value": doc.firmas.cargo2},
+            "firma3": {"type": "string", "value": doc.firmas.firma3},
+            "cargo3": {"type": "string", "value": doc.firmas.cargo3},
+            "firma4": {"type": "string", "value": doc.firmas.firma4},
+            "cargo4": {"type": "string", "value": doc.firmas.cargo4},
+            "escritura1": {"type": "string", "value": doc.escrituras.leyenda1},
+            "escritura2": {"type": "string", "value": doc.escrituras.leyenda2},
+            "arrendador": {"type": "string", "value": doc.firmas.arrendador},
+            "arrendadorCargo": {"type": "string", "value": doc.firmas.arrendadorCargo}
         };
 
         template(plantilla)

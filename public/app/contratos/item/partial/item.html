@@ -431,13 +431,164 @@
                         <i class="glyphicon glyphicon-pencil"></i> Firmas
                     </tab-heading>
                     <div class="panel panel-default">
-                        <div class="panel-heading">
-                        </div>
+                        <div class="panel-heading"></div>
                         <div class="panel-body">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firmasArrendador">Arrendador</label>
+                                    <input type="text"
+                                           required
+                                           class="form-control"
+                                           id="firmasArrendador"
+                                           name="firmasArrendador"
+                                           ng-model="current.firmas.arrendador"
+                                           ng-change="onChange()"
+                                           placeholder="Nombre de la persona">
+                                    <div data-ng-messages="contratoForm.firmasArrendador.$error"
+                                         class="error-messages"
+                                         ng-if="interacted(contratoForm.firmasArrendador)"
+                                         data-ng-messages-include="validaciones"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="empresaArea">Cargo arrendador</label>
+                                    <br/>
+                                    <textarea id="firmasArrendadorCargo"
+                                              required
+                                              name="firmasArrendadorCargo"
+                                              ng-change="onChange()"
+                                              cols="60"
+                                              rows="3"
+                                              ng-model="current.firmas.arrendadorCargo"
+                                              placeholder="Área"></textarea>
+                                    <div data-ng-messages="contratoForm.firmasArrendadorCargo.$error"
+                                         class="error-messages"
+                                         ng-if="interacted(contratoForm.firmasArrendadorCargo)"
+                                         data-ng-messages-include="validaciones"></div>
+                                </div>
+
+                           </div>
+                            <div class="col-md-6">
+                            </div>
+
+
+                            <div class="col-md-12">
+
+                                <div class="form-group">
+                                    <label for="firmasFirma1">Firma 1</label>
+                                    <input type="text"
+                                           required
+                                           class="form-control"
+                                           id="firmasFirma1"
+                                           name="firmasFirma1"
+                                           ng-model="current.firmas.firma1"
+                                           ng-change="onChange()"
+                                           placeholder="Nombre de la persona">
+                                    <div data-ng-messages="contratoForm.firmasFirma1.$error"
+                                         class="error-messages"
+                                         ng-if="interacted(contratoForm.firmasFirma1)"
+                                         data-ng-messages-include="validaciones"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="firmasCargo1">Cargo 1</label>
+                                    <br/>
+                                    <textarea id="firmasCargo1"
+                                              required
+                                              name="firmasCargo1"
+                                              ng-change="onChange()"
+                                              cols="120"
+                                              rows="3"
+                                              ng-model="current.firmas.cargo1"
+                                              placeholder="Área"></textarea>
+                                    <div data-ng-messages="contratoForm.firmasCargo1.$error"
+                                         class="error-messages"
+                                         ng-if="interacted(contratoForm.firmasCargo1)"
+                                         data-ng-messages-include="validaciones"></div>
+                                </div>
+
+
+                            </div>
+
                             <div class="col-md-6">
 
                                 <div class="form-group">
-                                    <label for="firmasSancion">Sanción jurídica</label>
+                                    <label for="firmasFirma2">Firma 2</label>
+                                    <input type="text"
+                                           required
+                                           class="form-control"
+                                           id="firmasFirma2"
+                                           name="firmasFirma2"
+                                           ng-model="current.firmas.firma2"
+                                           ng-change="onChange()"
+                                           placeholder="Nombre de la persona">
+                                    <div data-ng-messages="contratoForm.firmasFirma2.$error"
+                                         class="error-messages"
+                                         ng-if="interacted(contratoForm.firmasFirma2)"
+                                         data-ng-messages-include="validaciones"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="firmasCargo2">Cargo 2</label>
+                                    <br/>
+                                    <textarea id="firmasCargo2"
+                                              required
+                                              name="firmasCargo2"
+                                              ng-change="onChange()"
+                                              cols="60"
+                                              rows="3"
+                                              ng-model="current.firmas.cargo2"
+                                              placeholder="Área"></textarea>
+                                    <div data-ng-messages="contratoForm.firmasCargo2.$error"
+                                         class="error-messages"
+                                         ng-if="interacted(contratoForm.firmasCargo2)"
+                                         data-ng-messages-include="validaciones"></div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-md-6">
+
+                                <div class="form-group">
+                                    <label for="firmasFirma3">Firma 3</label>
+                                    <input type="text"
+                                           required
+                                           class="form-control"
+                                           id="firmasFirma3"
+                                           name="firmasFirma3"
+                                           ng-model="current.firmas.firma3"
+                                           ng-change="onChange()"
+                                           placeholder="Nombre de la persona">
+                                    <div data-ng-messages="contratoForm.firmasFirma3.$error"
+                                         class="error-messages"
+                                         ng-if="interacted(contratoForm.firmasFirma3)"
+                                         data-ng-messages-include="validaciones"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="firmasCargo3">Cargo 3</label>
+                                    <br/>
+                                    <textarea id="firmasCargo3"
+                                              required
+                                              name="firmasCargo3"
+                                              ng-change="onChange()"
+                                              cols="60"
+                                              rows="3"
+                                              ng-model="current.firmas.cargo3"
+                                              placeholder="Área"></textarea>
+                                    <div data-ng-messages="contratoForm.firmasCargo3.$error"
+                                         class="error-messages"
+                                         ng-if="interacted(contratoForm.firmasCargo3)"
+                                         data-ng-messages-include="validaciones"></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-12">
+
+                                <div class="form-group">
+                                    <label for="firmasSancion">Sanción jurídica de acuerdo al oficio</label>
                                     <input type="text"
                                            required
                                            class="form-control"
@@ -445,77 +596,111 @@
                                            name="firmasSancion"
                                            ng-model="current.firmas.sancion"
                                            ng-change="onChange()"
-                                           placeholder="Nombre de la persona">
+                                           placeholder="Número de oficio">
                                     <div data-ng-messages="contratoForm.firmasSancion.$error"
                                          class="error-messages"
                                          ng-if="interacted(contratoForm.firmasSancion)"
                                          data-ng-messages-include="validaciones"></div>
                                 </div>
 
+                            </div>
+
+                            <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="firmasRecursosHumanos">Testigo Recursos Humanos</label>
+                                    <label for="firmasFirma4">Firma 4</label>
                                     <input type="text"
                                            required
                                            class="form-control"
-                                           id="firmasRecursosHumanos"
-                                           name="firmasRecursosHumanos"
-                                           ng-model="current.firmas.recursosHumanos"
+                                           id="firmasFirma4"
+                                           name="firmasFirma4"
+                                           ng-model="current.firmas.firma4"
                                            ng-change="onChange()"
                                            placeholder="Nombre de la persona">
-                                    <div data-ng-messages="contratoForm.firmasRecursosHumanos.$error"
+                                    <div data-ng-messages="contratoForm.firmasFirma4.$error"
                                          class="error-messages"
-                                         ng-if="interacted(contratoForm.firmasRecursosHumanos)"
+                                         ng-if="interacted(contratoForm.firmasFirma4)"
                                          data-ng-messages-include="validaciones"></div>
                                 </div>
-
 
                                 <div class="form-group">
-                                    <label for="firmasAdmonPatri">Testigo Administración Patrimonial</label>
-                                    <input type="text"
-                                           required
-                                           class="form-control"
-                                           id="firmasAdmonPatri"
-                                           name="firmasAdmonPatri"
-                                           ng-model="current.firmas.admonPatri"
-                                           ng-change="onChange()"
-                                           placeholder="Nombre de la persona">
-                                    <div data-ng-messages="contratoForm.firmasAdmonPatri.$error"
+                                    <label for="firmasCargo4">Cargo 4</label>
+                                    <br/>
+                                    <textarea id="firmasCargo4"
+                                              required
+                                              name="firmasCargo4"
+                                              ng-change="onChange()"
+                                              cols="120"
+                                              rows="3"
+                                              ng-model="current.firmas.cargo4"
+                                              placeholder="Área"></textarea>
+                                    <div data-ng-messages="contratoForm.firmasCargo4.$error"
                                          class="error-messages"
-                                         ng-if="interacted(contratoForm.firmasAdmonPatri)"
+                                         ng-if="interacted(contratoForm.firmasCargo4)"
                                          data-ng-messages-include="validaciones"></div>
                                 </div>
+                            </div>
 
-                           </div>
+
                         </div>
+
+
+
+
                         <div class="panel-footer"></div>
                     </div>
                 </tab>
 
                 <tab class="my-tab">
                     <tab-heading class="my-tab-heading">
-                        <i class="glyphicon glyphicon-book"></i> Actas
+                        <i class="glyphicon glyphicon-book"></i> Escrituras
                     </tab-heading>
                     <div class="panel panel-default">
                         <div class="panel-heading">
                         </div>
                         <div class="panel-body">
-                            <div class="col-md-6">
+                            <div class="col-md-12">
                                 <div class="form-group">
-                                    <label for="actasNumero">Número acta de entrega recepción</label>
-                                    <input type="text"
-                                           required
-                                           class="form-control"
-                                           id="actasNumero"
-                                           name="actasNumero"
-                                           ng-model="current.actas.numero"
-                                           ng-change="onChange()"
-                                           placeholder="Acta de entrega">
-                                    <div data-ng-messages="contratoForm.actasNumero.$error"
+                                    <label for="escrituras1">Leyenda escritura 1</label>
+
+
+                                    <textarea id="escrituras1"
+                                              required
+                                              name="escrituras1"
+                                              ng-change="onChange()"
+                                              cols="120"
+                                              rows="5"
+                                              ng-model="current.escrituras.leyenda1"
+                                              placeholder="Leyenda"></textarea>
+
+                                   <div data-ng-messages="contratoForm.escrituras1.$error"
                                          class="error-messages"
-                                         ng-if="interacted(contratoForm.actasNumero)"
+                                         ng-if="interacted(contratoForm.escrituras1)"
                                          data-ng-messages-include="validaciones"></div>
                                 </div>
                             </div>
+
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="escrituras2">Leyenda escritura 2</label>
+
+
+                                    <textarea id="escrituras2"
+                                              required
+                                              name="escrituras2"
+                                              ng-change="onChange()"
+                                              cols="120"
+                                              rows="5"
+                                              ng-model="current.escrituras.leyenda2"
+                                              placeholder="Leyenda"></textarea>
+
+                                    <div data-ng-messages="contratoForm.escrituras2.$error"
+                                         class="error-messages"
+                                         ng-if="interacted(contratoForm.escrituras2)"
+                                         data-ng-messages-include="validaciones"></div>
+                                </div>
+                            </div>
+
+
                         </div>
                         <div class="panel-footer"></div>
                     </div>

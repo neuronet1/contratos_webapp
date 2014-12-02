@@ -49,13 +49,23 @@ contratosItem.controller('contratos.item.controller', function ($scope, $http, $
                             finVigencia: contrato.fechas.finVigencia,
                             firmaContrato: contrato.fechas.firmaContrato
                         },
-                        actas: {
-                            numero: contrato.actas.numero
+                        escrituras: {
+                            leyenda1: contrato.escrituras.leyenda1,
+                            leyenda2: contrato.escrituras.leyenda2
                         },
                         firmas: {
+                            firma1: contrato.firmas.firma1,
+                            cargo1: contrato.firmas.cargo1,
+                            firma2: contrato.firmas.firma2,
+                            cargo2: contrato.firmas.cargo2,
+                            firma3: contrato.firmas.firma3,
+                            cargo3: contrato.firmas.cargo3,
+                            firma4: contrato.firmas.firma4,
+                            cargo4: contrato.firmas.cargo4,
+                            arrendador: contrato.firmas.arrendador,
+                            arrendadorCargo: contrato.firmas.arrendadorCargo,
                             sancion: contrato.firmas.sancion,
-                            recursosHumanos: contrato.firmas.recursosHumanos,
-                            admonPatri: contrato.firmas.admonPatri
+                            recursosHumanos: contrato.firmas.recursosHumanos
                         }
                     }
                 }
