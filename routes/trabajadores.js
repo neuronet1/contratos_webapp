@@ -87,7 +87,9 @@ router.get('/print/:id', function (req, res) {
             "escritura1": {"type": "string", "value": doc.escrituras.leyenda1},
             "escritura2": {"type": "string", "value": doc.escrituras.leyenda2},
             "arrendador": {"type": "string", "value": doc.firmas.arrendador},
-            "arrendadorCargo": {"type": "string", "value": doc.firmas.arrendadorCargo}
+            "arrendadorCargo": {"type": "string", "value": doc.firmas.arrendadorCargo},
+            "oficio": {"type": "string", "value": doc.consecutivo.oficio},
+            "contrato": {"type": "string", "value": doc.consecutivo.contrato}
         };
 
         template(plantilla)

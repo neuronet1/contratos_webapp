@@ -279,6 +279,8 @@
                 </div>
                 </tab>
 
+
+
                 <tab class="my-tab">
                     <tab-heading class="my-tab-heading">
                         <i class="glyphicon glyphicon-tower"></i> Empresa
@@ -312,7 +314,7 @@
                                               required
                                               name="empresaArea"
                                               ng-change="onChange()"
-                                              cols="30"
+                                              cols="60"
                                               rows="5"
                                               ng-model="current.empresa.area"
                                               placeholder="Área"></textarea>
@@ -647,6 +649,53 @@
 
 
                         <div class="panel-footer"></div>
+                    </div>
+                </tab>
+
+
+                <tab class="my-tab">
+                    <tab-heading class="my-tab-heading">
+                        <i class="glyphicon glyphicon-bookmark"></i> Consecutivos
+                    </tab-heading>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="consecutivoOficio">Número de oficio</label>
+                                    <input type="text"
+                                           required
+                                           class="form-control"
+                                           id="consecutivoOficio"
+                                           name="consecutivoOficio"
+                                           ng-change="onChange()"
+                                           ng-model="current.consecutivo.oficio"
+                                           placeholder="Número de oficio">
+                                    <div data-ng-messages="contratoForm.consecutivoOficio.$error"
+                                         class="error-messages"
+                                         ng-if="interacted(contratoForm.consecutivoOficio)"
+                                         data-ng-messages-include="validaciones"></div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="consecutivoContrato">Número de contrato</label>
+                                    <input type="text"
+                                           required
+                                           class="form-control"
+                                           id="consecutivoContrato"
+                                           name="consecutivoContrato"
+                                           ng-change="onChange()"
+                                           ng-model="current.consecutivo.contrato"
+                                           placeholder="Número de contrato">
+                                    <div data-ng-messages="contratoForm.consecutivoContrato.$error"
+                                         class="error-messages"
+                                         ng-if="interacted(contratoForm.consecutivoContrato)"
+                                         data-ng-messages-include="validaciones"></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </tab>
 

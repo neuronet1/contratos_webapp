@@ -9,11 +9,6 @@ topMenu.controller('common.topMenu.controller', function ($scope) {
             "menu": "Contratos de arrendamiento",
             "ref": 'contratos',
             "icon": 'glyphicon glyphicon-book'
-        },
-        {
-            "menu": 'Configuración',
-            "ref": 'configuracion',
-            "icon": 'glyphicon glyphicon-cog'
         }
     ];
 

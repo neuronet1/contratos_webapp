@@ -53,6 +53,10 @@ contratosItem.controller('contratos.item.controller', function ($scope, $http, $
                             leyenda1: contrato.escrituras.leyenda1,
                             leyenda2: contrato.escrituras.leyenda2
                         },
+                        consecutivo: {
+                            contrato: contrato.consecutivo.contrato,
+                            oficio: contrato.consecutivo.oficio
+                        },
                         firmas: {
                             firma1: contrato.firmas.firma1,
                             cargo1: contrato.firmas.cargo1,

@@ -68,3 +68,16 @@ db.contratos.find({}).forEach(function (doc) {
     db.contratos.save(doc);
     print('guardando');
 });
+
+
+
+db.contratos.update({},{$set:{"consecutivo.oficio":""}}, false, true);
+db.contratos.update({},{$set:{"consecutivo.contrato":""}}, false, true);
+
+db.contratos.find({}).forEach(function (doc) {
+    doc.consecutivo.oficio = "SPRN-CPRN-SAPS-PR-XXX-20145";
+    doc.consecutivo.contrato = "232-73000-1-107No. SAF-";
+
+    db.contratos.save(doc);
+    print('guardando');
+});
