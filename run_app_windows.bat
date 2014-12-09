@@ -1,1 +1,1 @@
-C:\Users\Administrator\AppData\Roaming\npm\nodemon.cmd app.js
+C:\Users\Administrator\AppData\Roaming\npm\nodemon.cmd C:\inetpub\wwwroot\patrimonial\bin\www
