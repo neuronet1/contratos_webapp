@@ -81,3 +81,13 @@ db.contratos.find({}).forEach(function (doc) {
     db.contratos.save(doc);
     print('guardando');
 });
+
+
+db.contratos.find({}).forEach(function (doc) {
+    doc.consecutivo.contrato = "SPRN-CPRN-SAPS-PR-XXX-20145";
+
+    db.contratos.save(doc);
+    print('guardando');
+});
+
+

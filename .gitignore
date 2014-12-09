@@ -1,7 +1,7 @@
 node_modules
 public/lib/bootstrap
 public/lib
-public/contratos
+public/contratos/*.odt
 tmp/
 .idea
 
