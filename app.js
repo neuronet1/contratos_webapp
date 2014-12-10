@@ -31,12 +31,38 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// inicio del cambio para no abrir la base cada que se invoca una ruta
+var database = {
+    contratos: [],
+    ObjectID: ObjectID
+};
 
+mongodb.MongoClient.connect(mongoUrl, function (err, db) {
+    console.log('OBTENIENDO LA BASE DE DATOS');
+    database = {
+        contratos: db.collection('contratos'),
+        ObjectID: ObjectID
+    };
+});
+
+
+// guardamos la base como una propiedad del request
+// para poder accederla desde el router
+app.use(function (req, res, next) {
+    req.db = database;
+    next();
+});
+// fin inicio del cambio
+
+
+
+/*
 // Abrimos la base y la guardamos como una propiedad del request
 // para poder accederla desde el router
 app.use(function (req, res, next) {
     mongodb.MongoClient.connect(mongoUrl, function (err, db) {
         //req.db = db;
+        console.log('OBTENIENDO LA BASE DE DATOS');
         req.db = {
             contratos: db.collection('contratos'),
             ObjectID: ObjectID
@@ -44,6 +70,7 @@ app.use(function (req, res, next) {
         next();
     });
 });
+*/
 
 app.use('/', routes);
 
